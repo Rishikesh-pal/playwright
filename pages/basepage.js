@@ -29,6 +29,14 @@ class BasePage {
         return await this.page.locator(selector).isElementEnabled()
     }
 
+    async inputText(selector, text) {
+        return await this.page.locator(selector).fill(text);
+    }
+
+    async clickOn(selector) {
+        return await this.page.locator(selector).click();
+    }
+
 }
 
 export default BasePage;

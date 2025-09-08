@@ -26,7 +26,7 @@ Test Steps:
 import { expect } from '@playwright/test'
 import test from "../testFixtures/fixtures";
 import constants from '../data/constants.json'
-import { loginButton, loginPageLogo, password, username } from '../pageobjects/loginPage';
+import { loginButton, loginCredentials, loginPageLogo, password, username } from '../pageobjects/loginPage';
 
 test.describe("Login Functionality Verification", () => {
     test('Login as a standard user to verify the products page and logout from the application', async ({
@@ -39,20 +39,31 @@ test.describe("Login Functionality Verification", () => {
         await test.step("2. Verify the Logo, title, url, username, password fields, login button, login and password credentials on the login page", async () => {
             expect(await loginPage.getPageTitle()).toBe(constants.title);
             expect(await loginPage.getPageURL()).toBe(constants.baseUrl);
-            expect(username).toBeVisible();
-            expect(password).toBeVisible();
-            expect(loginButton).toBeEnabled();
-            expect(loginPageLogo).toBeVisible();
+            expect(await loginPage.getUserName()).toBeVisible();
+            expect(await loginPage.getPassword()).toBeVisible();
+            expect(await loginPage.getLoginButton()).toBeEnabled();
+            expect(await loginPage.getLoginPageLogo()).toBeVisible();
+            expect(await loginPage.getLoginCredentials()).toEqual(
+                ['standard_user',
+                    'locked_out_user',
+                    'problem_user',
+                    'performance_glitch_user',
+                    'error_user',
+                    'visual_user'
+                ]
+            );
         });
 
         await test.step("3. Login as a standard user", async () => {
-
+            await loginPage.loginAsStandardUser();
         });
 
         await test.step("4. User is on the Landing/Products page. Verify the Landing page logo and URL", async () => {
+            expect(await loginPage.getPageURL()).toBe(constants.inventoryPageURL);
         });
 
         await test.step("5. Verify the PRODUCTS title and peek image visible on the home page", async () => {
+
         });
         await test.step("6. Verify all the options Burger menu item, ALL ITEMS; ABOUT; LOGOUT AND RESET APP STATE are visible on inventory sidebar links on left side of the page", async () => {
         });
