@@ -37,6 +37,10 @@ class BasePage {
         return await this.page.locator(selector).click();
     }
 
+    async navigateBack() {
+        await this.page.goBack({ waitUntil: 'load' });
+    }
+
 }
 
 export default BasePage;

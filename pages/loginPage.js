@@ -1,4 +1,4 @@
-import BasePage from './basepage.js';
+import BasePage from './basePage.js';
 import { expect } from '@playwright/test';
 import {
     loginPageLogo,
@@ -8,7 +8,7 @@ import {
     loginPageBotImage,
     loginCredentials,
     loginPasswordCredentials
-} from '../pageobjects/loginPage.js';
+} from '../pageobjects/loginPageLocators.js';
 
 export default class LoginPage extends BasePage {
     constructor(page) {

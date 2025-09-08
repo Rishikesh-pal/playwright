@@ -1,5 +1,21 @@
 {
     "baseUrl": "https://www.saucedemo.com/",
     "title": "Swag Labs",
-    "inventoryPageURL": "https://www.saucedemo.com/inventory.html"
+    "inventoryPageURL": "https://www.saucedemo.com/inventory.html",
+    "loginCredentials": [
+        "standard_user",
+        "locked_out_user",
+        "problem_user",
+        "performance_glitch_user",
+        "error_user",
+        "visual_user"
+    ],
+    "productPageTitle": "Products",
+    "sauceUrl": "https://saucelabs.com/",
+    "twitterTitle": "Twitter",
+    "twitterUrl": "https://x.com/saucelabs",
+    "facebookTitle": "Sauce Labs | Facebook",
+    "facebookUrl": "https://www.facebook.com/saucelabs",
+    "linkedInTitle": "LinkedIn",
+    "linkedInUrl": "https://www.linkedin.com"
 }
